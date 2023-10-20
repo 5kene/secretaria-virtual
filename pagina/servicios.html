@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="servicio.css">
+    <title>servicios</title>
+</head>
+<body>
+    <button id="goHomeButton" onclick="goToHome()">Inicio</button>
+    <header>
+        <h1>Servicios</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#mensajes">Envío de Mensajes</a></li>
+            <li><a href="#documentos">Gestión de Documentos</a></li>
+            <li><a href="#informacion-academica">informacion academica</a></li>
+            <li><a href="#solicitud-documentos">informacion academica</a></li>
+            <li><a href="#reserva-espacios">informacion academica</a></li>           
+        </ul>
+    </nav>
+    <section id="mensajes">
+        <form action="" method="POST" id="form">
+            <div class="form">
+                <h2>Envío de Mensajes</h2>
+                <div class="grupo">
+                    <input type="text" id="destinatario" name="" required><span class="barra"></span>
+                    <label for="">Destinatario</label>
+                </div>
+                <div class="grupo">
+                    <input type="text" id="asunto" name="" required><span class="barra"></span>
+                    <label for="">Asunto:</label>
+                </div>
+                <div class="grupo">
+                    <textarea id="mensaje" name="" required></textarea><span class="barra"></span>
+                    <label for="">Mensaje:</label>
+                </div>
+                <button type="submit">Enviar Mensaje</button>
+            </div>
+        </form>
+    </section>
+    <section id="documentos">
+        <form action="" method="POST" id="form" enctype="multipart/form-data">
+            <div class="form">
+                <h2>Gestión de Documentos</h2>
+                <div class="grupo">
+                    <input type="file" id="archivo" name="" required><span class="barra"></span>
+                    <label for="">Seleccionar Archivo:</label>
+                </div>
+                <div class="grupo">
+                    <input type="text" id="nombre" name="" required><span class="barra"></span>
+                    <label for="">Nombre</label>
+                </div>
+                <button type="submit">Subir Documento</button>
+            </div>
+        </form>
+    </section>
+    <section id="informacion-academica">
+        <form action="" method="POST" id="form">
+            <div class="form">
+                <h2>Consulta de Información Académica</h2>
+                <p>Ingresa tu número de estudiante para consultar tu información académica</p>
+                <div class="grupo">
+                    <input type="text" id="numero-estudiante" name="" required><span class="barra"></span>
+                    <label for="">Número de Estudiante</label>
+                </div>
+                <div class="grupo">
+                    <input type="text" name="" id="cedula" required><span class="barra"></span>
+                    <label for="">Cedula</label>
+                </div>
+             <button type="submit">Consultar</button>
+            </div>
+        </form>
+    </section>
+    <section id="solicitud-documentos">
+        <form action="" method="POST" id="form">
+            <div class="form">
+                <h2>Solicitud de Documentos</h2>
+                <p>Completa el formulario para solicitar un documento académico</p>
+                <div class="grupo">
+                    <select id="tipo-documento" name="tipo-documento">
+                        <option value="certificado">Certificado</option>
+                        <option value="diploma">Diploma</option>
+                        <option value="constancia-estudios">Constancia de Estudios</option>
+                        <option value="historial-académico:">Historial Académico</option>
+                        <option value="credenciales:">Credenciales</option>
+                    </select><span class="barra"></span>
+                    <label for="tipo-documento">Tipo de Documento:</label>
+                </div>
+                <div class="grupo">
+                    <textarea id="motivo" name="motivo" required></textarea><span class="barra"></span>
+                    <label for="motivo">Motivo de la Solicitud</label>
+                </div>
+                <button type="submit">Enviar Solicitud</button>
+            </div>
+        </form>
+    </section>
+    <section id="reserva-espacios">
+        <form action="" method="POST" id="form">
+            <div class="form">
+                <h2>Reserva de Espacios</h2>
+                <p>Selecciona el espacio y horario que deseas reservar</p>
+                <div class="grupo">
+                    <select id="espacio" name="espacio">
+                        <option value="aula101">Aula 101</option>
+                        <option value="sala-reuniones">Sala de Reuniones</option>
+                        <option value="aula305">Aula 305</option>
+                        <option value="auditorio">Auditorio</option>
+                    </select><span class="barra"></span>
+                    <label for="espacio">Espacio a Reservar:</label>
+                </div>
+                <div class="grupo">
+                    <input type="date" id="fecha" name="fecha" required><span class="barra"></span>
+                    <label for="fecha">Fecha de Reserva:</label>
+                </div>
+                <div class="grupo">
+                    <input type="time" id="hora-inicio" name="hora-inicio" required><span class="barra"></span>
+                    <label for="hora-inicio">Hora de Inicio:</label>
+                </div>
+                <div class="grupo">
+                    <input type="time" id="hora-fin" name="hora-fin" required><span class="barra"></span>
+                    <label for="hora-fin">Hora de Finalización:</label>
+                </div>
+                <button type="submit">Reservar Espacio</button>
+            </div>
+        </form>
+    </section>
+    
+    <script>
+
+        function goToHome() {
+            // Redireccionar a la página de inicio
+            window.location.href = "principal.html";
+        }
+
+        const formMensajes = document.getElementById("form");
+
+        formMensajes.addEventListener("submit", function (event) {
+        // Detener el envío del formulario
+        event.preventDefault();
+
+        // Aquí realizas la validación
+        var destinatario = document.getElementById("destinatario");
+        var asunto = document.getElementById("asunto");
+        var mensaje = document.getElementById("mensaje");
+
+        if (destinatario.value.length < 4) {
+                alert("El nombre no es valido");
+                return false;
+            }
+        alert("Mensaje enviado con éxito.");
+    });
+
+    const formInformacionAcademica = document.getElementById("form");
+
+    formInformacionAcademica.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        // Realiza la validación de campos aquí
+        var numeroEstudiante = document.getElementById("numero-estudiante");
+        const cedula = document.getElementById("cedula");
+
+        if (cedula.value.length === 0 || isNaN(cedu.value)) {
+                alert("La cédula no es valida");
+                return false;
+            }
+        if (numeroEstudiante.value.length > 6) {
+                alert("El numero no es valido");
+                return false;
+        }
+        alert("Consulta realizada con éxito.");
+    });
+    </script>
+
+</body>
+</html>

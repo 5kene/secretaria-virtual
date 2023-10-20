@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha384-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="sesion.css">
+    <title>Formulario</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-content">
+            <button id="goHomeButton" onclick="goToHome()">Inicio</button>
+            <h1 id="tittle" class="tittle">iniciar sesion</h1>
+            <form id="login-form">
+                <div class="input-group">
+                    <div class="input-field">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="email" placeholder="Correo">
+                    </div>
+                    <div class="input-field">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Contraseña">
+                    </div>
+                </div>
+                <div class="btn-field">
+                    <button id="signIn" type="button" onclick="submitForm()">acceder</button>
+                    <a href="registro.html">
+                        <button id="signUp" type="button">registrarse</button>
+                    </a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        function goToHome() {
+            // Redireccionar a la página de inicio
+            window.location.href = "principal.html";
+        }
+
+        function submitForm() {
+            // Captura los valores del formulario
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+
+            // Simula la validación del usuario (debería hacerse en el servidor)
+            if (email === "kenfael@gmail.com" && password === "contraseña") {
+                alert("Inicio de sesión exitoso");
+                // Redireccionar a la página de inicio, por ejemplo
+                    window.location.href = "principal.html";
+            } else {
+                alert("Inicio de sesión fallido. Verifica tus credenciales.");
+            }
+        }
+    </script>
+</body>
+
+</html>

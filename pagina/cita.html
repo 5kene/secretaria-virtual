@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="citas.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <title>Agendar cita</title>
+</head>
+<body>
+    <h1>Solicitud de Cita</h1>
+    <div class="container">
+        <button id="goHomeButton" onclick="goToHome()">Inicio</button>
+    <form>
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required><br><br>
+
+        <label for="email"><i class="fas fa-envelope"></i> Correo Electrónico:</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="fecha">Fecha de Cita:</label>
+        <input type="date" id="fecha" name="fecha" required><br><br>
+
+        <label for="hora">Hora de Cita:</label>
+        <input type="time" id="hora" name="hora" required><br><br>
+
+        <label for="mensaje">Mensaje Adicional:</label><br>
+        <textarea id="mensaje" name="mensaje" rows="4" cols="50"></textarea><br><br>
+
+        <input type="submit" value="Solicitar Cita">
+    </form>
+    </div>
+    <script>
+        function goToHome() {
+            // Redireccionar a la página de inicio
+            window.location.href = "principal.html";
+        }
+        function validarFormulario() {
+            var nombre = document.getElementById("nombre").value;
+            var email = document.getElementById("email").value;
+            var fecha = document.getElementById("fecha").value;
+            var hora = document.getElementById("hora").value;
+            if (nombre === "" || email === "" || fecha === ""|| hora==="" ) {
+                alert("Por favor, complete todos los campos.");
+                return false; // Evita que el formulario se envíe si faltan campos.
+            }
+            return true; // El formulario se envía si todos los campos están completos.
+        }
+    </script>
+</body>
+</html>

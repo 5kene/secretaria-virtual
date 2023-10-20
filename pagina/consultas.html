@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="consulta.css">
+    <title>Consultas</title>
+</head>
+<body>
+    <button id="goHomeButton" onclick="goToHome()">Inicio</button>
+    <header>
+        <h1>Consultas</h1>
+    </header>
+    <div class="container">
+        <form action="" method="POST" id="form">
+            <div class="form">
+                <h2>Consulta de Información </h2>
+                <div class="grupo">
+                    <input type="text" id="busqueda" name="" required><span class="barra"></span>
+                    <label for="">Buscar por Nombre o ID:</label>
+                </div>
+                <div class="grupo">
+                    <input type="text" id="carrera" name="" required><span class="barra"></span>
+                    <label for="">Carrera</label>
+                </div>
+                <div class="grupo">
+                    <input type="text" id="cargo" name="" required><span class="barra"></span>
+                    <label for="">Cargo</label>
+                </div>
+                <button type="submit">Consultar</button>
+            </div>
+        </form>
+    </div>
+    <script>
+        function goToHome() {
+        // Redireccionar a la página de inicio
+        window.location.href = "principal.html";
+    }
+    function validarFormulario() {
+
+        var busqueda = document.getElementById("busqueda");
+        var carrera = document.getElementById("carrera");
+        const form = document.getElementById("form");
+
+        if (busqueda.value.length > 10) {
+            alert("ID o Nombre no es correcto");
+            return false;
+        }
+        if (carrera.value.length < 5) {
+            alert("la carrera no es valida");
+            return false;
+        }
+        alert("Iniciando busqueda");
+    }
+</script>
+</body>
+</html>

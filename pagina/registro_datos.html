@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="datos.css">
+    <title>Registro de Datos</title>
+</head>
+<body>
+    <div class="container">
+        <button id="goHomeButton" onclick="goToHome()">Inicio</button>
+        <form action="" method="POST" id="form">
+            <div class="form">
+                <h1>Registro de Datos</h1>
+                <div class="grupo">
+                    <input type="text" id="nombre" name="" required><span class="barra"></span>
+                    <label for="">Nombre:</label>
+                </div>
+                <div class="grupo">
+                    <input type="text" name="" id="apellido" required><span class="barra"></span>
+                    <label for="">Apellido</label>
+                </div>
+                <div class="grupo">
+                    <input type="text" name="" id="cedula" required><span class="barra"></span>
+                    <label for="">Cedula</label>
+                </div>
+                <div class="grupo">
+                    <input type="email" name="" id="email" required><span class="barra"></span>
+                    <label for="">Email</label>
+                </div>
+                <div class="grupo">
+                    <input type="text" name="" id="facultad" required><span class="barra"></span>
+                    <label for="">Facultad</label>
+                </div>
+                <div class="grupo">
+                    <input type="text" name="" id="cargo" required><span class="barra"></span>
+                    <label for="">cargo</label>
+                </div>
+                <div class="grupo">
+                    <input type="text" name="" id="materia" required><span class="barra"></span>
+                    <label for="">materia</label>
+                </div>
+                <div class="grupo">
+                    <input type="number" name="" id="edad" required><span class="barra"></span>
+                    <label for="">edad</label>
+                </div>
+                <div class="grupo">
+                    <input type="tel" name="" id="celular" required><span class="barra"></span>
+                    <label for="">Celular</label>
+                </div>
+                <button type="submit" >Guardar</button>
+                <p class="warnings" id="warnings"></p>
+            </div>
+        </form>
+    </div>
+    <script>
+            function goToHome() {
+            // Redireccionar a la página de inicio
+            window.location.href = "principal.html";
+        }
+        function validarRegistroDatos() {
+            // Obtener los valores del nombre, correo electrónico y edad
+            var nombre = document.getElementById("nombre");
+            var apell = document.getElementById("apellido");
+            var cedu = document.getElementById("cedula");
+            var email = document.getElementById("email");
+            var facultad = document.getElementById("facultad");
+            var cargo = document.getElementById("cargo");
+            var materia = document.getElementById("materia");
+            var edad = document.getElementById("edad");
+            var celular = document.getElementById("celular");
+            const form = document.getElementById("form");
+
+            // Verificar que el campo de nombre no esté vacío
+            if (nombre.value.length < 4) {
+                alert("El nombre no es valido");
+                return false;
+            }
+            if (apell.value.length < 4) {
+                alert("El apellido no es valido");
+                return false;
+            }
+            if (cedu.value.length === 0 || isNaN(cedu.value)) {
+                alert("La cédula no es valida");
+                return false;
+            }
+            // Verificar que el campo de correo electrónico tenga un formato válido
+            var expresionCorreo = /\S+@\S+\.\S+/;
+            if (!expresionCorreo.test(correo)) {
+                alert("Ingrese una dirección de correo electrónico válida.");
+                return false;
+            }
+
+            // Verificar que la edad sea un número válido
+            if (isNaN(edad) || edad <= 0) {
+                alert("Ingrese una edad válida.");
+                return false;
+            }
+            if (celular.value.length < 10 || isNaN(celular.value)) {
+                alert("Celular invalido.");
+                return false;
+            }
+
+            alert("Ingresando datos");
+        }
+    </script>
+</body>
+</html>
